@@ -1,0 +1,328 @@
+/* ==========================================================================
+   Base Styles / Typography
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&display=swap');
+
+:root {
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --sub-text-color: #666666;
+    --border-color: #eeeeee;
+    --accent-color: #999999;
+    --font-serif: "Noto Serif JP", serif;
+    --container-width: 800px;
+    --header-height: 80px;
+    --transition-speed: 0.3s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-訂正: border-box;
+}
+
+body {
+    font-family: var(--font-serif);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.8;
+    word-wrap: break-word;
+    word-break: break-all;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: opacity var(--transition-speed);
+}
+
+a:hover {
+    opacity: 0.6;
+}
+
+ul {
+    list-style: none;
+}
+
+/* ==========================================================================
+   Layout
+   ========================================================================== */
+
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+header {
+    height: var(--header-height);
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    background-color: rgba(255, 255, 255, 0.95);
+    z-index: 1000;
+}
+
+header .container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.site-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+}
+
+nav ul {
+    display: flex;
+    gap: 30px;
+}
+
+nav ul li a {
+    font-size: 0.95rem;
+    letter-spacing: 0.05em;
+}
+
+main {
+    padding: 80px 0;
+    min-height: calc(100vh - var(--header-height) - 160px);
+}
+
+footer {
+    padding: 60px 0;
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+    background-color: #fafafa;
+}
+
+.footer-site-title {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.copyright {
+    font-size: 0.8rem;
+    color: var(--sub-text-color);
+}
+
+/* ==========================================================================
+   Page Elements
+   ========================================================================== */
+
+.page-title {
+    font-size: 2rem;
+    margin-bottom: 40px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.page-description {
+    text-align: center;
+    margin-bottom: 60px;
+    color: var(--sub-text-color);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+section {
+    margin-bottom: 80px;
+}
+
+section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    border-left: 3px solid var(--text-color);
+    padding-left: 15px;
+}
+
+/* Cards / Lists */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 40px;
+}
+
+.card {
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 20px;
+}
+
+.card-title {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.card-meta {
+    font-size: 0.85rem;
+    color: var(--sub-text-color);
+    margin-bottom: 10px;
+}
+
+.card-description {
+    font-size: 0.95rem;
+}
+
+/* List Style (Blog/etc) */
+.article-item {
+    padding: 25px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.article-item:last-child {
+    border-bottom: none;
+}
+
+.article-date {
+    font-size: 0.85rem;
+    color: var(--sub-text-color);
+    margin-bottom: 5px;
+}
+
+.article-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.article-excerpt {
+    font-size: 0.95rem;
+}
+
+/* Links */
+.link-list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.link-item {
+    border: 1px solid var(--border-color);
+    padding: 20px;
+    transition: background-color var(--transition-speed);
+}
+
+.link-item:hover {
+    background-color: #f9f9f9;
+}
+
+.link-name {
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+/* News Section */
+.news-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.news-item {
+    padding: 15px 0;
+    border-bottom: 1px dashed var(--border-color);
+    display: flex;
+    gap: 20px;
+}
+
+.news-date {
+    flex-shrink: 0;
+    color: var(--sub-text-color);
+    font-size: 0.9rem;
+}
+
+/* Responsive Menu */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 6px;
+    padding: 10px;
+    z-index: 1001;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 1px;
+    background-color: var(--text-color);
+    transition: 0.3s;
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    :root {
+        --header-height: 60px;
+    }
+
+    .container {
+        padding: 0 20px;
+    }
+
+    header .container {
+        position: relative;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        height: 100vh;
+        background-color: var(--bg-color);
+        box-shadow: -5px 0 15px rgba(0,0,0,0.05);
+        transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    nav.active {
+        right: 0;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+    }
+
+    nav ul li a {
+        font-size: 1.2rem;
+    }
+
+    /* Hamburger Animation */
+    .menu-toggle.active span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+    .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-toggle.active span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+
+    main {
+        padding: 40px 0;
+    }
+
+    .page-title {
+        font-size: 1.6rem;
+    }
+}
